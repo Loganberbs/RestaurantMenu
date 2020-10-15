@@ -1,25 +1,30 @@
 using System;
+using System.Collections.Generic;
+using System.Net.NetworkInformation;
+using System.Text;
 
 namespace RestaurantMenu
 {
     public class MenuItem
     {
         public string Name { get; set; }
-        public double Price { get; set; }
+        public string Price { get; set; }
         public string Description { get; set; }
         public string Category { get; set; }
-        public bool IsNew { get; set; }
-        public int Id { get; set; }
+        private static int NextId = 1; 
+        private readonly int id;
 
-        public MenuItem(string name, double price, string description, string category, bool isNew, int id)
+    public MenuItem()
+    
+    {
+            id = NextId;
+            NextId++;
+    }
+
+    
+    public int Id
         {
-            Name = name;
-            Price = price;
-            Description = description;
-            Category = category;
-            IsNew = isNew;
-            Id = id;
-
+            get { return id; }
         }
     }
 }
